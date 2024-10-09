@@ -1,0 +1,22 @@
+services:
+  paint2_server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: paint2_server
+    restart: unless-stopped
+    ports:
+      - "6767:6767"
+    volumes:
+      - ./server/src:/app
+
+  paint2_front:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: paint2_front
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend/src:/var/www/html

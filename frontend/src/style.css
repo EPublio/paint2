@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+body {
+  background-color: black;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px;
+  font-size: 2em;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+canvas {
+  border: 5px solid #5c5c5c;
+  cursor: pointer;
+  background-color: rgb(207, 207, 207);
+  cursor: crosshair;
+}
+
+/*  ESTILOS DO GPT PARA O COLOR PICKER  */
+input[type="color"] {
+  -webkit-appearance: none; /* Remove o estilo padrão em navegadores WebKit */
+  appearance: none; /* Remove o estilo padrão */
+  width: 100px; /* Largura do input */
+  height: 40px; /* Altura do input */
+  border: 2px solid #ccc; /* Borda leve */
+  border-radius: 5px; /* Cantos arredondados */
+  cursor: pointer; /* Muda o cursor para ponteiro */
+  outline: none; /* Remove contorno padrão ao focar */
+  position: relative; /* Para posicionar o pseudo-elemento */
+  background-color: transparent; /* Fundo transparente */
+}
+
+/* Estiliza a cor de fundo quando o input é focado */
+input[type="color"]:focus {
+  border-color: #66afe9; /* Cor da borda ao focar */
+}
+
+/* Adiciona um pseudo-elemento para exibir a cor selecionada */
+input[type="color"]::before {
+  content: ""; /* Conteúdo vazio para o pseudo-elemento */
+  display: block; /* Permite que o pseudo-elemento tenha altura e largura */
+  width: 100%; /* Largura total do input */
+  height: 100%; /* Altura total do input */
+  border-radius: 5px; /* Cantos arredondados */
+  position: absolute; /* Permite posicionar o pseudo-elemento */
+  top: 0; /* Alinha ao topo */
+  left: 0; /* Alinha à esquerda */
+  background-color: #000000; /* Cor padrão inicial (preto) */
+  transition: background-color 0.2s; /* Animação de transição suave */
+}
+
+/* Atualiza a cor do pseudo-elemento com a cor selecionada */
+input[type="color"]:focus::before {
+  background-color: inherit; /* Mantém a cor ao focar */
+}
+
+/* Atualiza a cor do pseudo-elemento quando a cor é escolhida */
+input[type="color"]:hover::before {
+  background-color: inherit; /* Mantém a cor ao passar o mouse */
+}
